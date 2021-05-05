@@ -18,7 +18,7 @@ export class ProductsService {
     return this.products;
   }
   findOne(id: number) {
-    return this.products.find((item) => item.id === id);
+    return this.products.find((item) => item.id == id);
   }
   create(payload: any) {
     this.counterId = this.counterId + 1;
@@ -29,19 +29,19 @@ export class ProductsService {
     this.products.push(newProduct);
     return newProduct;
   }
-  filter(id: number) {
+  delete(id: number) {
     this.products = this.products.filter((el) => el.id !== id);
   }
-  delete(id: number, payload: any) {
-    this.products = this.products.map((el) => {
-      if (el.id === id) {
-        return {
-          id,
-          ...payload,
-        };
-      } else {
-        return el;
-      }
-    });
+  update(id: number, payload: any) {
+    const product = this.findOne(id);
+    if (product) {
+      const index = this.products.findIndex((item) => item.id == id);
+      this.products[index] = {
+        ...product,
+        ...payload,
+      };
+      return (this.products[index] = payload);
+    }
+    return null;
   }
 }
