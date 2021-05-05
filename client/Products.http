@@ -1,0 +1,26 @@
+@host = http://localhost:3000/products
+
+###
+GET {{host}}/filter/
+###
+GET {{host}}?limit=145&offset=32&brand=mercedes
+###
+GET {{host}}/1231
+###
+POST {{host}}
+Content-Type: application/json
+
+{
+	"name": "Product 1",
+	"price": 12351
+}
+###
+PUT {{host}}/13215134
+Content-Type: application/json
+
+{
+	"name": "mazda",
+	"price": 40
+}
+###
+DELETE {{host}}/12

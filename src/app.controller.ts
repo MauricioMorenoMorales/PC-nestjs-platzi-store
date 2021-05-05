@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -16,17 +16,5 @@ export class AppController {
   @Get('/ruta/')
   hello() {
     return 'con /sas/';
-  }
-  //? Así es como se reciben los parametros de peticiones
-  @Get('/products/:productId')
-  getProduct(@Param('productId') productId: string) {
-    return `Producto con el id ${productId}`;
-  }
-  @Get('/categories/:categoryId/products/:productId')
-  getCategory(
-    @Param('productId') productId: string,
-    @Param('categoryId') categoryId: string,
-  ) {
-    return `Producto con el id ${productId} en la categoria ${categoryId}`;
   }
 }
