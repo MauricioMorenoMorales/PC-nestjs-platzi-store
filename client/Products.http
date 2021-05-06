@@ -30,4 +30,4 @@ Content-Type: application/json
 	"stock": 122
 }
 ###
-DELETE {{host}}/12
+DELETE {{host}}/1
