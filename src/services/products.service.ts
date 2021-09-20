@@ -18,6 +18,7 @@ export class ProductsService {
   findAll() {
     return this.products;
   }
+
   findOne(id: number) {
     const product = this.products.find((item) => item.id === id);
     if (!product) {
@@ -25,7 +26,9 @@ export class ProductsService {
     }
     return product;
   }
+
   create(payload: CreateProductDto) {
+    console.log(payload);
     this.counterId = this.counterId + 1;
     const newProduct = {
       id: this.counterId,
@@ -34,9 +37,11 @@ export class ProductsService {
     this.products.push(newProduct);
     return newProduct;
   }
+
   delete(id: number) {
     this.products = this.products.filter((el) => el.id !== id);
   }
+
   update(id: number, payload: UpdateProductDto) {
     const product = this.findOne(id);
     if (product) {

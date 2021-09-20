@@ -15,8 +15,10 @@ Content-Type: application/json
 {
 	"name": "Product 2",
 	"stock": 1221,
-	"image": "an image",
-	"price": 12351
+	"image": "gmail.com",
+	"description": "an image",
+	"price": 12351,
+	"otracosa": "123131"
 }
 ###
 PUT {{host}}/1
@@ -25,9 +27,7 @@ Content-Type: application/json
 {
 	"name": "mazda",
 	"description": "un bonito carro",
-	"image": "imagen de el mazda",
-	"price": 122,
-	"stock": 122
+	"price": -122
 }
 ###
 DELETE {{host}}/1
